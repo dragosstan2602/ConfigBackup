@@ -16,3 +16,12 @@
     loop:
       - config_backup_eos
       - config_backup_ios
+      
+  - name: Check results
+    shell: "ls -al ./configs"
+    delegate_to: localhost
+    register: shell_output
+  
+  - name: Print results of shell
+    debug:
+      msg: "{{ shell_output }}"
