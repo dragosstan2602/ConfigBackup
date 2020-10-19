@@ -2,7 +2,10 @@
 - name: create config folder
   hosts: localhost
   gather_facts: false
-  file:
-    path: "./configs"
-    state: "directory"
-  run_once: yes
+
+  tasks:
+  - name: Create config folder
+    file:
+      path: "./configs"
+      state: "directory"
+    run_once: yes
