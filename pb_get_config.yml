@@ -14,5 +14,5 @@
     include_role:
       name: "{{ item }}"
     loop:
-      - '{{ config_backup_eos }}'
-      - '{{ config_backup_ios }}'
+      - config_backup_eos
+      - config_backup_ios
