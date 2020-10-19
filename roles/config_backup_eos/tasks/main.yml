@@ -1,2 +1,12 @@
 ---
-# tasks file for config_backup_eos
+- name: Get Config from Aristas
+  eos_command:
+    commands:
+      - show running-config
+  register: output
+  when: ansible_network_os == 'eos'
+
+- name: Print config
+  debug:
+    msg: "{{ output.stdout_lines }}"
+  when: ansible_network_os == 'eos'

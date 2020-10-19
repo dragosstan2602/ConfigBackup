@@ -1,2 +1,2 @@
 ---
-# vars file for config_backup_eos
+config_dir: config_backup_eos

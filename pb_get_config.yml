@@ -1,0 +1,6 @@
+---
+- name: get configs
+  hosts: network
+  gather_facts: false
+  roles:
+    - config_backup_eos
