@@ -2,6 +2,17 @@
 - name: get configs
   hosts: network
   gather_facts: false
-  roles:
-    - config_backup_eos
-    - config_backup_ios
+  tasks:
+  - name: Create config dir
+    file:
+      path: "./configs"
+      state: "directory"
+    run_once: yes
+    delegate_to: localhost
+  
+  - name: Write configs to ./configs
+    include_role:
+      name: "{{ item }}"
+    loop:
+      - '{{ config_backup_eos }}'
+      - '{{ config_backup_ios }}'
